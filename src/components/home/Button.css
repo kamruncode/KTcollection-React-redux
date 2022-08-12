@@ -1,0 +1,35 @@
+.Buttons {
+  position: relative;
+  top: 10rem;
+  width: 100%;
+
+  left: 5px;
+}
+
+.btn-next,
+.btn-prev {
+  position: absolute;
+  font-size: 3rem !important;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+  opacity: 0.1;
+}
+.btn-next {
+  right: 0;
+}
+.btn-prev {
+  transform: rotate(180deg);
+}
+.btn-prev:hover,
+.btn-next:hover {
+  color: rgb(61, 0, 0);
+  border-right: 1px solid rgb(61, 0, 0);
+  opacity: 1;
+  transition: 0.2s;
+}
