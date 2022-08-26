@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import ProductAction from "../redux/action/ProductAction";
+import DeleteProductAction from "../redux/action/DeleteProductAction";
+
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
@@ -22,6 +26,8 @@ const Product = () => {
   };
 
   const ShowProduct = () => {
+    const dispatch = useDispatch();
+
     return (
       <>
         <hr className="my-5" />
@@ -39,7 +45,21 @@ const Product = () => {
             <i className="fa fa-star mx-2"></i>
           </h4>
           <p className="lead my-5">{product.description}</p>
-          <button type="button" class="btn btn-outline-danger ">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onClick={() => {
+              dispatch(
+                ProductAction(
+                  product.title,
+                  product.image,
+                  product.description,
+                  product.category
+                )
+              );
+              // dispatch(DeleteProductAction(product.id));
+            }}
+          >
             Add to Cart
           </button>
         </div>
