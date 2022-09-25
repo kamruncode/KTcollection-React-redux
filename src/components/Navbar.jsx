@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "./Navbar.css";
 function Navbar() {
   const products = useSelector((state) => state.products);
   return (
@@ -35,25 +36,18 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/about">
+                <NavLink className="nav-link" to="/">
                   About
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">
+                <NavLink className="nav-link" to="/">
                   Contact
                 </NavLink>
               </li>
             </ul>
 
             <div className="buttons">
-              <NavLink to="/login" className="btn btn-outline-dark">
-                <i className="fa fa-sign-in mx-2" aria-hidden="true"></i>LOGIN
-              </NavLink>
-              <NavLink to="signup" className="btn btn-outline-dark mx-2">
-                <i className="fa fa-user-plus mx-2" aria-hidden="true"></i>
-                Register
-              </NavLink>
               <NavLink to="Cart" className="btn btn-outline-dark">
                 <i className="fa fa-shopping-cart mx-2" aria-hidden="true"></i>
                 Cart({products.length})

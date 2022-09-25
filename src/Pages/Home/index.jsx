@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import Button from "./Buttons";
+import Buttons from "../../components/Buttons";
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const compDm = true;
@@ -24,7 +25,7 @@ const Home = () => {
   return (
     <>
       <div className="container mt-5">
-        {products.map((p, i, a) => {
+        {products.map((p, i) => {
           if (i % 4 === 0) {
             return (
               <>
@@ -35,20 +36,20 @@ const Home = () => {
                       : " slide-container passive-slide"
                   }
                 >
-                  <img src={a[i].image} height={400} />
+                  <img src={p.image} height={400} />
                   <div className="about-product">
-                    <p className="text-uppercase lead">{a[i].category}</p>
+                    <p className="text-uppercase lead">{p.category}</p>
                     <hr />
 
-                    <h1 className="text-uppercase">{a[i].title}</h1>
-                    <h2 className="my-3">${a[i].price}</h2>
+                    <h1 className="text-uppercase">{p.title}</h1>
+                    <h2 className="my-3">${p.price}</h2>
                     <p className="lead my-2">
-                      {a[i].description.substring(0, 200)}...
+                      {p.description.substring(0, 200)}...
                     </p>
                   </div>
                 </div>
 
-                <Button
+                <Buttons
                   nextSlide={() => {
                     if (index < 16 && index >= 0) {
                       setIndex(index + 4);

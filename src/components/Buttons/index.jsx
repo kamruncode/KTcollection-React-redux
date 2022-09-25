@@ -1,6 +1,6 @@
 import "./Button.css";
 
-const Button = ({ nextSlide, prevSlide }) => {
+const Buttons = ({ nextSlide, prevSlide }) => {
   return (
     <div className="Buttons">
       <i className="fa fa-forward btn-next" onClick={nextSlide}></i>
@@ -8,4 +8,4 @@ const Button = ({ nextSlide, prevSlide }) => {
     </div>
   );
 };
-export default Button;
+export default Buttons;
